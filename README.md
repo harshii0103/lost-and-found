@@ -1,16 +1,45 @@
-# React + Vite
+# 404 Not Lost
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An AI-powered campus lost & found platform, built for the SheCodes Hackathon.
 
-Currently, two official plugins are available:
+Our idea is — if you lose something on campus, report it. If someone finds something, they report it too. The app then uses image matching to suggest possible matches between the two, instead of everyone manually scrolling through a list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Report a lost item (category, description, location, date/time, photo)
+- Report a found item
+- AI compares lost and found reports and gives a match score
+- View match results and browse all reports
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+Frontend: React (Vite), Tailwind CSS, React Router
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Backend: Flask, SQLite
+
+AI/Matching: PyTorch (pretrained ResNet-50) for image feature extraction, cosine similarity for comparing images, combined with category, location, time, and description matching for a final score.
+
+## Running it locally
+
+Frontend:
+```
+npm install
+npm run dev
+```
+
+Backend:
+```
+cd backend
+pip install flask flask-cors torch torchvision pillow scipy pandas
+python app.py
+```
+
+Both need to be running at the same time for the app to fully work.
+
+## Team
+
+Harshita, Suramya, Naina, Pari, Avantika, Suhani
+
+## Note
+
+Built during a hackathon under a tight timeline, so a few things (like login and a full dashboard) are still on the to-do list.
